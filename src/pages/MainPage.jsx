@@ -21,11 +21,11 @@ useEffect(() => {
     <main> 
       <h1>FILM</h1>
       <div>
-        <ul>
           {films.map( film=> (
-            <li key={film.id}>{film.title}</li>
+            <div key={film.id}></div>
+            
           ))}
-        </ul>
+
       </div>
     </main>
     <AppFooter/>
