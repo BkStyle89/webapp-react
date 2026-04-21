@@ -1,1 +1,6 @@
 @import url('bootstrap');
+
+.card{
+    width: 18rem;
+    margin-bottom: 10px;
+}

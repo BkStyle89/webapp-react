@@ -19,13 +19,26 @@ useEffect(() => {
     <>
     <AppHeader/>
     <main> 
-      <h1>FILM</h1>
-      <div>
+      <h1 className="text-center">LISTA FILM</h1>
+      <div className="container">
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
           {films.map( film=> (
-            <div key={film.id}></div>
-            
+            <div className="col">
+              <div className="card">
+                <div key={film.id}></div>
+                  <h3>{film.title}</h3>
+                  <img src={film.image} alt="" />
+                  <p>{film.genre}</p>
+                  <p>{film.abstract}</p>
+                  <div>
+                    <p>{film.director}</p>
+                    <p>{film.release_year}</p>
+                  </div>
+                  <p>{film.updated_at}</p>
+              </div>
+            </div>
           ))}
-
+        </div>
       </div>
     </main>
     <AppFooter/>
