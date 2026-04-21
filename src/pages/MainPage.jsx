@@ -2,9 +2,11 @@ import { useEffect,useState } from "react";
 import axios from 'axios';
 import AppHeader from "../components/AppHeader";
 import AppFooter from "../components/AppFooter";
+import { useNavigate } from "react-router-dom";
 export default function MainPage(){
 
 const api_key=import.meta.env.VITE_API_KEY
+const navigate = useNavigate();
 const[films,setFilms] =useState([]);
   
 useEffect(() => {
@@ -23,9 +25,10 @@ useEffect(() => {
       <div className="container">
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
           {films.map( film=> (
-            <div className="col">
-              <div className="card">
-                <div key={film.id}></div>
+            <div className="col" key={film.id}>
+              <div className="card"
+              onClick={() => navigate(`/film/${film.id}`)}
+              style={{ cursor: "pointer" }}>
                   <h3>{film.title}</h3>
                   <img src={film.image} alt="" />
                   <p>{film.genre}</p>
