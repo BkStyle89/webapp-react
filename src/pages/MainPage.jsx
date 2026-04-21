@@ -21,23 +21,23 @@ useEffect(() => {
     <>
     <AppHeader/>
     <main> 
-      <h1 className="text-center">LISTA FILM</h1>
+      <h1 className="text-center">FAKE REVIEWS</h1>
       <div className="container">
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
           {films.map( film=> (
-            <div className="col" key={film.id}>
-              <div className="card"
+            <div className="col mt-5" key={film.id}>
+              <div className="card p-3 mt-3 h-100"
               onClick={() => navigate(`/film/${film.id}`)}
               style={{ cursor: "pointer" }}>
                   <h3>{film.title}</h3>
-                  <img src={film.image} alt="" />
+                  <img src={`http://localhost:3010/post/movies_cover${film.image}`} alt="" />
                   <p>{film.genre}</p>
                   <p>{film.abstract}</p>
-                  <div>
+                  <div className="d-flex justify-content-between ">
                     <p>{film.director}</p>
                     <p>{film.release_year}</p>
                   </div>
-                  <p>{film.updated_at}</p>
+                  <p className="mt-auto">{film.updated_at}</p>
               </div>
             </div>
           ))}

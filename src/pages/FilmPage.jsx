@@ -31,13 +31,14 @@ useEffect(() => {
                   <h3>{review.title}</h3>
                   <img src={review.image} alt="" />
                   <p>{review.genre}</p>
-                  <p>{review.abstract}</p>
                   <div>
                     <p>{review.director}</p>
-                    <p>{review.name}</p>
                     <p>{review.release_year}</p>
+                    <p>{review.name}</p>
+                    <p>voto ${4}</p>
+                    <p>recensione ${review.text}</p>
                   </div>
-                  <p>{review.updated_at}</p>
+                  <p>{review.updated_created_at}</p>
               </div>
             </div>
           ))}
