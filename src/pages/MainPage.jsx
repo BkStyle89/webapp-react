@@ -3,8 +3,8 @@ import axios from 'axios';
 import AppHeader from "../components/AppHeader";
 import AppFooter from "../components/AppFooter";
 import { useNavigate } from "react-router-dom";
-export default function MainPage(){
 
+export default function MainPage(){
 const api_key=import.meta.env.VITE_API_KEY
 const navigate = useNavigate();
 const[films,setFilms] =useState([]);
@@ -20,13 +20,13 @@ useEffect(() => {
   return (
     <>
     <AppHeader/>
-    <main> 
+    <main className="bg-secondary "> 
       <h1 className="text-center">FAKE REVIEWS</h1>
       <div className="container">
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
           {films.map( film=> (
-            <div className="col mt-5" key={film.id}>
-              <div className="card p-3 mt-3 h-100"
+            <div className="col mt-5 d-flex justify-content-center" key={film.id}>
+              <div className="card p-3 mt-3 h-75 mb-5"
               onClick={() => navigate(`/film/${film.id}`)}
               style={{ cursor: "pointer" }}>
                   <h3>{film.title}</h3>

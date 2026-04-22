@@ -22,12 +22,12 @@ useEffect(() => {
   return (
     <>
     <AppHeader/>
-    <main> 
+    <main className="bg-secondary"> 
       <div className="container">
         <div className="row">
           {reviews.map(review => (
             <div className="col" key={review.id}>
-              <div className="card">
+              <div className="card mt-3">
                   <h3>{review.title}</h3>
                   <img src={review.image} alt="" />
                   <p>{review.genre}</p>
@@ -35,7 +35,7 @@ useEffect(() => {
                     <p>{review.director}</p>
                     <p>{review.release_year}</p>
                     <p>{review.name}</p>
-                    <p>voto ${4}</p>
+                    <p>voto {review.vote}</p>
                     <p>recensione ${review.text}</p>
                   </div>
                   <p>{review.updated_created_at}</p>
