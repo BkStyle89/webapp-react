@@ -20,6 +20,8 @@ export default function AppHeader(){
               <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="/">Home</a>
               </li>
+              <li><a className="nav-link active" aria-current="page" href="/filmList">Lista Film</a>
+              </li>
             </ul>
           </div>
         </div>

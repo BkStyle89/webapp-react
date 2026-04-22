@@ -48,7 +48,7 @@ empty Star <i class="bi bi-star"></i>
       <div className="container">
         <div className="row">
           {reviews.map(review => (
-            <div className="col mb-5" >
+            <div className="col mb-5 d-flex justify-content-center" >
               <div className="card mt-3 p-3 h-100">
                   <h3>{review.title}</h3>
                   
