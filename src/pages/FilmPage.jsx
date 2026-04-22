@@ -29,20 +29,23 @@ useEffect(() => {
             <div className="col mb-5" >
               <div className="card mt-3 p-3 h-100">
                   <h3>{review.title}</h3>
-                  <img className="cover" src={`http://localhost:3010/movies_cover${review.image}`} alt="" />
+                  
                   <p className="fw-bold">{review.genre}</p>
                   <div>
                     <p className="fw-bold">{review.director}</p>
                     <p>{review.release_year}</p>
                     <p>{review.name}</p>
                     <p>voto {review.vote}</p>
-                    <p>recensione ${review.text}</p>
+                    <p>recensione {review.text}</p>
                   </div>
                   <p>{review.updated_created_at}</p>
               </div>
             </div>
           ))}
         </div>
+      </div>
+      <div className="d-flex justify-content-center">
+        <a className="callBack" href="../">Torna Indietro</a>
       </div>
     </main>
     <AppFooter/>

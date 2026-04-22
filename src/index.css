@@ -3,6 +3,7 @@
 .card{
     width: 18rem;
     margin-bottom: 10px;
+    box-shadow: 2px 4px 6px black;
 }
 
 #logo{
@@ -12,4 +13,24 @@
 
 .cover{
     border: solid black 4px;
+}
+
+header{
+    border-bottom: solid black 2px;
+}
+
+footer{
+    border-top: solid black 2px;
+}
+
+.callBack{
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    background-color: dodgerblue;
+    padding: 6px;
+    border-radius: 20px;
+    border: solid black 2px;
+    text-shadow: black 2px 2px;
+    margin-bottom: 10px;
 }
