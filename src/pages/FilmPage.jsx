@@ -19,6 +19,28 @@ useEffect(() => {
   .catch(error => console.error(error));
 },[]);
 
+function ratingStars(vote){
+  const stars=[]
+  const rating = (vote)
+
+  for(let i=0; i<5;i++){
+    if(i<rating){
+      stars.push(<i className="bi bi-star-fill"></i>)
+    }else{
+      stars.push(<i className="bi bi-star"></i>)
+    }
+  }
+  return stars
+}
+
+/* Stars From Boostrap
+
+FullStar <i class="bi bi-star-fill"></i>
+Half star <i class="bi bi-star-half"></i> 
+empty Star <i class="bi bi-star"></i>
+
+*/
+
   return (
     <>
     <AppHeader/>
@@ -35,10 +57,10 @@ useEffect(() => {
                     <p className="fw-bold">{review.director}</p>
                     <p>{review.release_year}</p>
                     <p>{review.name}</p>
-                    <p>voto {review.vote}</p>
+                    <p>{ratingStars(review.vote)}</p>
                     <p>recensione {review.text}</p>
                   </div>
-                  <p>{review.updated_created_at}</p>
+                  <p>{review.updated_created_at} </p>
               </div>
             </div>
           ))}
