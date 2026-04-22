@@ -7,7 +7,7 @@ export default function AppHeader(){
     <>
     <header>
       <div className="d-flex justify-content-center">
-        <img  id="logo" src={logo} alt="" />
+        <img id="logo" src={logo} alt="" />
       </div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary " >
         <div className="container-fluid ">

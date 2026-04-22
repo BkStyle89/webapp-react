@@ -6,6 +6,10 @@
 }
 
 #logo{
-    width: 400px;
+    width: 350px;
     
+}
+
+.cover{
+    border: solid black 4px;
 }

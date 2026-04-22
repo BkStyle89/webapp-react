@@ -20,21 +20,21 @@ useEffect(() => {
   return (
     <>
     <AppHeader/>
-    <main className="bg-secondary "> 
-      <h1 className="text-center">FAKE REVIEWS</h1>
+    <main className="bg-secondary"> 
+      <h1 className="text-center text-light">Welcome To The FakeReviews Site</h1>
       <div className="container">
-        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 ">
           {films.map( film=> (
-            <div className="col mt-5 d-flex justify-content-center" key={film.id}>
-              <div className="card p-3 mt-3 h-75 mb-5"
+            <div className="col mt-5 d-flex justify-content-center mb-5" key={film.id}>
+              <div className="card p-3 mt-3 h-100 mb-5"
               onClick={() => navigate(`/film/${film.id}`)}
               style={{ cursor: "pointer" }}>
                   <h3>{film.title}</h3>
-                  <img src={`http://localhost:3010/post/movies_cover${film.image}`} alt="" />
-                  <p>{film.genre}</p>
+                  <img className="cover" src={`http://localhost:3010/movies_cover${film.image}`} alt="" />
+                  <p className="fw-bold">{film.genre}</p>
                   <p>{film.abstract}</p>
                   <div className="d-flex justify-content-between ">
-                    <p>{film.director}</p>
+                    <p className="fw-bold">{film.director}</p>
                     <p>{film.release_year}</p>
                   </div>
                   <p className="mt-auto">{film.updated_at}</p>

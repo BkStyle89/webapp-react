@@ -26,13 +26,13 @@ useEffect(() => {
       <div className="container">
         <div className="row">
           {reviews.map(review => (
-            <div className="col" key={review.id}>
-              <div className="card mt-3">
+            <div className="col mb-5" >
+              <div className="card mt-3 p-3 h-100">
                   <h3>{review.title}</h3>
-                  <img src={review.image} alt="" />
-                  <p>{review.genre}</p>
+                  <img className="cover" src={`http://localhost:3010/movies_cover${review.image}`} alt="" />
+                  <p className="fw-bold">{review.genre}</p>
                   <div>
-                    <p>{review.director}</p>
+                    <p className="fw-bold">{review.director}</p>
                     <p>{review.release_year}</p>
                     <p>{review.name}</p>
                     <p>voto {review.vote}</p>
