@@ -17,7 +17,7 @@ useEffect(() => {
   
 })
   .catch(error => console.error(error));
-},[]);
+},[id]);
 
 function ratingStars(vote){
   const stars=[]

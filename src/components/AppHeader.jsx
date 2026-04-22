@@ -1,7 +1,22 @@
 import logo from "../images/FakeRewies.png"
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+import { useEffect,useState } from "react";
+import { useParams } from "react-router-dom";
 
 export default function AppHeader(){
-
+const api_key=import.meta.env.VITE_API_KEY
+const navigate = useNavigate();
+const {id} =useParams();
+const[films,setFilms] =useState([]);
+  
+useEffect(() => {
+  axios.get(`${api_key}`)
+  .then(response=> {
+  setFilms(response.data);
+})
+  .catch(error => console.error(error));
+},[]);
 
   return (
     <>
@@ -21,6 +36,16 @@ export default function AppHeader(){
                 <a className="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <li><a className="nav-link active" aria-current="page" href="/filmList">Lista Film</a>
+              </li>
+              <li>
+                <label className="mt-2" htmlFor="Films">Scegli film</label>
+                <select  onChange={(e) => navigate(`/film/${e.target.value}`)}>
+                  <option value="">Seleziona il titolo</option>
+                  {films.map( film=> (
+                  <option key={film.id} value={film.id}>{film.title}</option>
+                  ))}  
+                  
+              </select>
               </li>
             </ul>
           </div>
