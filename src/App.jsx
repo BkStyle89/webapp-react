@@ -1,5 +1,5 @@
 import MainPage from "./pages/MainPage"
-import FilmPage from "./pages/FilmPage"
+import ReviewPage from "./pages/ReviewPage"
 import FilmList from "./pages/FilmList"
 import {BrowserRouter,Route,Routes} from "react-router-dom"
 function App() {
@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element ={<MainPage/>}/>
-          <Route path="/film/:id" element={<FilmPage/>}/>
+          <Route path="/film/:id" element={<ReviewPage/>}/>
           <Route path="/filmList" element={<FilmList/>}/>
         </Routes>
       </BrowserRouter>
