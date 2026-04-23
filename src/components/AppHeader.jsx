@@ -20,7 +20,7 @@ useEffect(() => {
 
   return (
     <>
-    <header>
+    <header className="bg-dark">
       <div className="d-flex justify-content-center">
         <img id="logo" src={logo} alt="" />
       </div>
