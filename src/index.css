@@ -45,3 +45,14 @@ footer{
     text-shadow: black 2px 2px;
     margin-bottom: 10px;
 }
+
+#bannerFilm{
+    height: 900px;
+}
+
+.bannerIMG{
+    height: 700px;
+    margin-top: -30px;
+    width: auto;
+    margin-left: 80px;
+}

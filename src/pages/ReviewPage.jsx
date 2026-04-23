@@ -3,6 +3,8 @@ import axios from 'axios';
 import AppHeader from "../components/AppHeader";
 import AppFooter from "../components/AppFooter";
 import { useParams } from "react-router-dom";
+import banner from "../images/banner.png"
+import banner2 from "../images/banner2.png"
 export default function ReviewPage(){
 
 const review_key=import.meta.env.VITE_REVIEW_KEY
@@ -59,10 +61,13 @@ empty Star <i class="bi bi-star"></i>
     <AppHeader/>
     <main className="bg-secondary"> 
 
-      <div className="container">
-        <div className="row row-cols-1">
+      <div className="container ">
+        <div id="bannerFilm" className="row row-cols-lg-3 row-cols-sm-1 justify-content-between gx-0">
+          <div className="col-auto d-none d-lg-block">
+            <img className="bannerIMG " src={banner2} alt="" />
+          </div>
           {film && (
-            <div className="col mt-5 d-flex justify-content-center mb-5">
+            <div className="col-12 col-lg mt-5 d-flex justify-content-center mb-5 px-4">
               <div className="card p-3 mt-3 h-100 mb-5">
                   <h3>{film.title}</h3>
                   <img className="cover" src={`http://localhost:3010/movies_cover${film.image}`} alt="" />
@@ -76,6 +81,9 @@ empty Star <i class="bi bi-star"></i>
               </div>
             </div>
           )}
+          <div className="col-auto d-none d-lg-block ms-auto">
+            <img className="bannerIMG" src={banner2} alt="" />
+          </div>
         </div>
       </div>
       <div className="d-flex justify-content-center">
