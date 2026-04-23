@@ -19,6 +19,17 @@ useEffect(() => {
   .catch(error => console.error(error));
 },[id]);
 
+const api_key=import.meta.env.VITE_API_KEY
+const[film,setFilm] =useState(null);
+  
+useEffect(() => {
+  axios.get(`${api_key}/${id}`)
+  .then(response=> {
+  setFilm(response.data);
+})
+  .catch(error => console.error(error));
+},[id]);
+
 function ratingStars(vote){
   const stars=[]
   const rating = (vote)
@@ -33,6 +44,8 @@ function ratingStars(vote){
   return stars
 }
 
+
+
 /* Stars From Boostrap
 
 FullStar <i class="bi bi-star-fill"></i>
@@ -45,6 +58,29 @@ empty Star <i class="bi bi-star"></i>
     <>
     <AppHeader/>
     <main className="bg-secondary"> 
+
+      <div className="container">
+        <div className="row row-cols-1">
+          {film && (
+            <div className="col mt-5 d-flex justify-content-center mb-5">
+              <div className="card p-3 mt-3 h-100 mb-5">
+                  <h3>{film.title}</h3>
+                  <img className="cover" src={`http://localhost:3010/movies_cover${film.image}`} alt="" />
+                  <p className="fw-bold">{film.genre}</p>
+                  <p>{film.abstract}</p>
+                  <div className="d-flex justify-content-between ">
+                    <p className="fw-bold">{film.director}</p>
+                    <p>{film.release_year}</p>
+                  </div>
+                  <p className="mt-auto">{film.updated_at}</p>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="d-flex justify-content-center">
+        <h2 id="reviewFilm" className="text-center">RECENSIONI FILM</h2>
+      </div>
       <div className="container">
         <div className="row">
           {reviews.map(review => (

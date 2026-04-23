@@ -24,6 +24,16 @@ footer{
     border-top: solid black 2px;
 }
 
+#reviewFilm{
+    background-color: dodgerblue;
+    color: white;
+    padding: 6px;
+    border-radius: 20px;
+    border: solid black 2px;
+    text-shadow: black 2px 2px;
+    width: 350px;
+}
+
 .callBack{
     text-decoration: none;
     color: white;
