@@ -25,24 +25,24 @@ footer{
 }
 
 #reviewFilm{
-    background-color: dodgerblue;
-    color: white;
+    background-color: rgba(233, 16, 30);
+    color: rgba(33, 37, 41);
     padding: 6px;
     border-radius: 20px;
     border: solid black 2px;
-    text-shadow: black 2px 2px;
+    text-shadow: white 2px 2px;
     width: 350px;
 }
 
 .callBack{
     text-decoration: none;
-    color: white;
+    color: rgba(33, 37, 41);
     font-weight: 600;
-    background-color: dodgerblue;
+    background-color: rgba(233, 16, 30);
     padding: 6px;
     border-radius: 20px;
     border: solid black 2px;
-    text-shadow: black 2px 2px;
+    text-shadow: white 2px 2px;
     margin-bottom: 10px;
 }
 
@@ -55,4 +55,13 @@ footer{
     margin-top: -30px;
     width: auto;
     margin-left: 80px;
+}
+
+
+.redText{
+    color: rgba(233, 16, 30);
+}
+
+.mainDark{
+    background-color: rgba(33, 37, 41);
 }

@@ -27,7 +27,7 @@ return (
                 {films.map( film=> (
                 <div className="col d-flex justify-content-center no-wrap" key={film.id}>
                     <ul className="list-group w-25 mt-2 mb-3 ">
-                        <li className="list-group-item text-center fw-bold mt-2 bg-primary text-light border-dark" onClick={() => navigate(`/film/${film.id}`)}
+                        <li className="redText list-group-item text-center fw-bold mt-2 bg-dark text-light border-dark" onClick={() => navigate(`/film/${film.id}`)}
               style={{ cursor: "pointer" }}>{film.title}</li>
                     </ul>
                 </div>

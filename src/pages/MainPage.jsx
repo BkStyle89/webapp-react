@@ -20,8 +20,8 @@ useEffect(() => {
   return (
     <>
     <AppHeader/>
-    <main className="bg-secondary"> 
-      <h1 className="text-center text-light">Welcome To The FakeReviews Site</h1>
+    <main className="mainDark"> 
+      <h1  className="redText text-center ">Welcome To The FakeReviews Site</h1>
       <div className="container">
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 ">
           {films.map( film=> (

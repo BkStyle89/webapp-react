@@ -59,7 +59,7 @@ empty Star <i class="bi bi-star"></i>
   return (
     <>
     <AppHeader/>
-    <main className="bg-secondary"> 
+    <main className="mainDark"> 
 
       <div className="container ">
         <div id="bannerFilm" className="row row-cols-lg-3 row-cols-sm-1 justify-content-between gx-0">
