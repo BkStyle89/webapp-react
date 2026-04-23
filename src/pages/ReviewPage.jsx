@@ -3,7 +3,7 @@ import axios from 'axios';
 import AppHeader from "../components/AppHeader";
 import AppFooter from "../components/AppFooter";
 import { useParams } from "react-router-dom";
-export default function FilmPage(){
+export default function ReviewPage(){
 
 const review_key=import.meta.env.VITE_REVIEW_KEY
 const { id } = useParams();
