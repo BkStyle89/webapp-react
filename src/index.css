@@ -65,3 +65,12 @@ footer{
 .mainDark{
     background-color: rgba(33, 37, 41);
 }
+
+
+.ButtoneReview{
+    background-color: rgba(233, 16, 30);
+    border-radius: 20px;
+    border: solid black 2px;
+    color: rgba(33, 37, 41);
+    text-shadow: white 2px 2px;
+}

@@ -46,13 +46,15 @@ function ratingStars(vote){
   return stars
 }
 
-
+function handleSubmit(e){
+  e.preventDefault()
+}
 
 /* Stars From Boostrap
 
-FullStar <i class="bi bi-star-fill"></i>
-Half star <i class="bi bi-star-half"></i> 
-empty Star <i class="bi bi-star"></i>
+FullStar <i className="bi bi-star-fill"></i>
+Half star <i className="bi bi-star-half"></i> 
+empty Star <i className="bi bi-star"></i>
 
 */
 
@@ -110,7 +112,36 @@ empty Star <i class="bi bi-star"></i>
           ))}
         </div>
       </div>
-      <div className="d-flex justify-content-center">
+      <div>
+        <div className="container">
+          <div className="row">
+            <div className="col"> 
+              <form>
+                <div className="form-group w-25">
+                  <label htmlFor="N&S">Name & Surname</label>
+                  <input type="text" className="form-control" id="N&S" placeholder="Name & Surname"/>
+                </div>
+                <div className="form-group w-25">
+                  <label htmlFor="exampleFormControlSelect1">Vote</label>
+                  <select className="form-control" id="Vote">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                  </select>
+                </div>  
+                <div className="form-group">
+                  <label htmlFor="exampleFormControlTextarea1">Example textarea</label>
+                  <textarea className="form-control" id="reviewArea" rows="3" placeholder="Scrivi la tua recensione"></textarea>
+                </div>
+                <button onClick={handleSubmit} type="submit" className="ButtoneReview btn btn-primary mt-3">invia</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="d-flex justify-content-center ">
         <a className="callBack" href="../">Torna Indietro</a>
       </div>
     </main>
@@ -118,3 +149,6 @@ empty Star <i class="bi bi-star"></i>
     </>
   )
 }
+
+
+
