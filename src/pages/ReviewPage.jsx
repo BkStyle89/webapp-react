@@ -46,9 +46,33 @@ function ratingStars(vote){
   return stars
 }
 
-function handleSubmit(e){
-  e.preventDefault()
-}
+const [name,setName] = useState("");
+const [vote, setVote] = useState("0");
+const [review, setReview] = useState("")
+
+const handleSubmit = async(e)=>{
+    e.preventDefault();
+  
+ const data ={
+  name,
+  vote: Number(vote),
+  text: review,
+ };
+ try{
+  await axios.post(`${review_key}/${id}/reviews`,data);
+  console.log("recensione creata con successo!");
+  
+    setName("");
+    setVote(0);
+    setReview("");
+
+    const res = await axios.get(`${review_key}/${id}/reviews`);
+    setReviews(res.data)
+
+ } catch (err){
+  console.error(err);
+ }
+};
 
 /* Stars From Boostrap
 
@@ -94,7 +118,7 @@ empty Star <i className="bi bi-star"></i>
       <div className="container">
         <div className="row">
           {reviews.map(review => (
-            <div className="col mb-5 d-flex justify-content-center" >
+            <div key={review.key} className="col mb-5 d-flex justify-content-center" >
               <div className="card mt-3 p-3 h-100">
                   <h3>{review.title}</h3>
                   
@@ -116,26 +140,39 @@ empty Star <i className="bi bi-star"></i>
         <div className="container">
           <div className="row">
             <div className="col"> 
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div className="form-group w-25">
                   <label htmlFor="N&S">Name & Surname</label>
-                  <input type="text" className="form-control" id="N&S" placeholder="Name & Surname"/>
+                  <input  
+                    type="text"
+                    className="form-control" 
+                    value={name} 
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Name & Surname"/>
                 </div>
                 <div className="form-group w-25">
-                  <label htmlFor="exampleFormControlSelect1">Vote</label>
-                  <select className="form-control" id="Vote">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                  <label>Vote</label>
+                  <select 
+                    className="form-control"
+                    value={vote}
+                    onChange={(e) => setVote(e.target.value)}>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
                   </select>
                 </div>  
                 <div className="form-group">
-                  <label htmlFor="exampleFormControlTextarea1">Example textarea</label>
-                  <textarea className="form-control" id="reviewArea" rows="3" placeholder="Scrivi la tua recensione"></textarea>
+                  <label>Recensione</label>
+                  <textarea className="form-control" 
+                    rows="3" 
+                    value={review}
+                    onChange={(e)=> setReview(e.target.value)}
+                    placeholder="Scrivi la tua recensione"></textarea>
                 </div>
-                <button onClick={handleSubmit} type="submit" className="ButtoneReview btn btn-primary mt-3">invia</button>
+                <button type="submit" className="ButtoneReview btn btn-primary mt-3">invia</button>
               </form>
             </div>
           </div>
