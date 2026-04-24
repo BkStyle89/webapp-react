@@ -4,6 +4,8 @@ import AppHeader from "../components/AppHeader";
 import AppFooter from "../components/AppFooter";
 import { useNavigate } from "react-router-dom";
 import banner2 from "../images/banner2.png"
+import { useContext } from "react";
+import {context} from "../context/context"
 export default function FilmList(){
 
 

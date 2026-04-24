@@ -5,6 +5,8 @@ import AppFooter from "../components/AppFooter";
 import { useParams } from "react-router-dom";
 import banner from "../images/banner.png"
 import banner2 from "../images/banner2.png"
+import { useContext } from "react";
+import {context} from "../context/context"
 export default function ReviewPage(){
 
 const review_key=import.meta.env.VITE_REVIEW_KEY

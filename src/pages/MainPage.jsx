@@ -3,26 +3,43 @@ import axios from 'axios';
 import AppHeader from "../components/AppHeader";
 import AppFooter from "../components/AppFooter";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import {context} from "../context/context"
 
 
 export default function MainPage(){
 const api_key=import.meta.env.VITE_API_KEY
 const navigate = useNavigate();
 const[films,setFilms] =useState([]);
+const { load, setLoad } = useContext(context);
   
 useEffect(() => {
-  axios.get(`${api_key}`)
-  .then(response=> {
-  setFilms(response.data);
-})
-  .catch(error => console.error(error));
-},[]);
+  setLoad(true);
+  setTimeout(() => {
+    axios.get(`${api_key}`)
+      .then(response => {
+        setFilms(response.data);
+        setLoad(false);
+      })
+      .catch(error => {
+        console.error(error);
+        setLoad(false);
+      });
+  }, 2000);
+}, []);
+
+
 
   return (
     <>
     <AppHeader/>
     <main className="mainDark"> 
       <h1  className="redText text-center ">Welcome To The FakeReviews Site</h1>
+      {load && (
+      <div className="loaderPage text-center text-light mt-3">
+        <i class="bi bi-arrow-clockwise"></i> Caricamento della FakeReviews in corso, attendere...
+      </div>
+      )}
       <div className="container">
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 ">
           {films.map( film=> (
@@ -31,7 +48,8 @@ useEffect(() => {
               onClick={() => navigate(`/film/${film.id}`)}
               style={{ cursor: "pointer" }} >
                   <h3 className="text-center text-light">{film.title}</h3>
-                  <img className="cover border-light" src={`http://localhost:3010/movies_cover${film.image}`} alt="" />
+                  <img className="cover border-light" src={`http://localhost:3010/movies_cover${film.image}`}  
+                    alt=""/>
                   <p className="fw-bold text-light text-center">{film.genre}</p>
                   <div className="d-flex justify-content-between mt-auto text-light">
                     <p className="fw-bold text-light">{film.director}</p>
