@@ -70,16 +70,16 @@ empty Star <i className="bi bi-star"></i>
           </div>
           {film && (
             <div className="col-12 col-lg mt-5 d-flex justify-content-center mb-5 px-4">
-              <div className="card p-3 mt-3 h-100 mb-5">
-                  <h3>{film.title}</h3>
-                  <img className="cover" src={`http://localhost:3010/movies_cover${film.image}`} alt="" />
-                  <p className="fw-bold">{film.genre}</p>
-                  <p>{film.abstract}</p>
-                  <div className="d-flex justify-content-between ">
-                    <p className="fw-bold">{film.director}</p>
+              <div className="filmCard card p-3 mt-3 h-100 mb-5 border-light">
+                  <h3 className="text-light">{film.title}</h3>
+                  <img className="cover border-light" src={`http://localhost:3010/movies_cover${film.image}`} alt="" />
+                  <p className="fw-bold text-light text-center">{film.genre}</p>
+                  <p className="text-light">{film.abstract}</p>
+                  <div className="d-flex justify-content-between text-light">
+                    <p className="fw-bold text-light">{film.director}</p>
                     <p>{film.release_year}</p>
                   </div>
-                  <p className="mt-auto">{film.updated_at}</p>
+                  <p className="mt-auto text-light">{film.updated_at}</p>
               </div>
             </div>
           )}

@@ -74,3 +74,11 @@ footer{
     color: rgba(33, 37, 41);
     text-shadow: white 2px 2px;
 }
+
+.filmCard{
+    background-image: url(./images/border.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    image-resolution: ;
+}
