@@ -12,16 +12,23 @@ export default function ReviewPage(){
 const review_key=import.meta.env.VITE_REVIEW_KEY
 const { id } = useParams();
 const[reviews,setReviews] =useState([]);
+const { load, setLoad } = useContext(context);
   
 useEffect(() => {
-  axios.get(`${review_key}/${id}/reviews`)
-  .then(response=> {
-  setReviews(response.data);
-  console.log(response.data);
-  
-})
-  .catch(error => console.error(error));
-},[id]);
+  setLoad(true);
+  setTimeout(() => {
+    axios.get(`${review_key}/${id}/reviews`)
+      .then(response=> {
+        setReviews(response.data);
+        setLoad(false);
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+        setLoad(false);
+      });
+  }, 2000);
+}, [id]);
 
 const api_key=import.meta.env.VITE_API_KEY
 const[film,setFilm] =useState(null);
@@ -40,9 +47,9 @@ function ratingStars(vote){
 
   for(let i=0; i<5;i++){
     if(i<rating){
-      stars.push(<i className="bi bi-star-fill"></i>)
+      stars.push(<i key={i} className="bi bi-star-fill"></i>)
     }else{
-      stars.push(<i className="bi bi-star"></i>)
+      stars.push(<i key={i} className="bi bi-star"></i>)
     }
   }
   return stars
@@ -88,13 +95,19 @@ empty Star <i className="bi bi-star"></i>
     <>
     <AppHeader/>
     <main className="mainDark"> 
-
       <div className="container ">
+      {load && (
+        <div className="loaderPage text-center text-light mt-3 py-5">
+          <i className="bi bi-arrow-clockwise"></i> Caricamento della FakeReviews in corso, attendere...
+        </div>
+      )}
         <div id="bannerFilm" className="row row-cols-lg-3 row-cols-sm-1 justify-content-between gx-0">
+          {!load && (
           <div className="col-auto d-none d-lg-block">
             <img className="bannerIMG " src={banner2} alt="" />
           </div>
-          {film && (
+          )}
+          {film && !load && (
             <div className="col-12 col-lg mt-5 d-flex justify-content-center mb-5 px-4">
               <div className="filmCard card p-3 mt-3 h-100 mb-5 border-light">
                   <h3 className="text-light">{film.title}</h3>
@@ -109,9 +122,11 @@ empty Star <i className="bi bi-star"></i>
               </div>
             </div>
           )}
+          {!load && (
           <div className="col-auto d-none d-lg-block ms-auto">
             <img className="bannerIMG" src={banner2} alt="" />
           </div>
+          )}
         </div>
       </div>
       <div className="d-flex justify-content-center">

@@ -37,7 +37,7 @@ useEffect(() => {
       <h1  className="redText text-center ">Welcome To The FakeReviews Site</h1>
       {load && (
       <div className="loaderPage text-center text-light mt-3">
-        <i class="bi bi-arrow-clockwise"></i> Caricamento della FakeReviews in corso, attendere...
+        <i className="bi bi-arrow-clockwise"></i> Caricamento della FakeReviews in corso, attendere...
       </div>
       )}
       <div className="container">

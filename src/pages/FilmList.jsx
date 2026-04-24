@@ -12,24 +12,40 @@ export default function FilmList(){
 const api_key=import.meta.env.VITE_API_KEY
 const navigate = useNavigate();
 const[films,setFilms] =useState([]);
+const { load, setLoad } = useContext(context);
   
 useEffect(() => {
+    setLoad(true)
+    setTimeout(() =>{
   axios.get(`${api_key}`)
   .then(response=> {
   setFilms(response.data);
+  setLoad(false)
 })
   .catch(error => console.error(error));
+  setLoad(false);
+},2000)
 },[]);
+
+
 
 return (
     <>
     <AppHeader/>
     <main>
+        
         <div className="container-fluid bg-secondary">
+            {load && (
+              <div className="loaderPage text-center text-light mt-3 py-5">
+                <i className="bi bi-arrow-clockwise"></i> Caricamento della FakeReviews in corso, attendere...
+              </div>
+            )}
             <div className="row row-cols-lg-3 row-cols-sm-1 justify-content-between gx-0" id="bannerFilm">
-                <div className="col-auto d-none d-lg-block">
-                    <img className="bannerIMG " src={banner2} alt="" />
-                </div>
+                {!load && (
+                  <div className="col-auto d-none d-lg-block">
+                      <img className="bannerIMG " src={banner2} alt="" />
+                  </div>
+                )}
                 <div className="col d-flex justify-content-center flex-wrap">
                     {films.map( film=> (
                     <div className="w-100" key={film.id}>
@@ -40,9 +56,11 @@ return (
                     </div>
                     ))}
                 </div>
-                <div className="col-auto d-none d-lg-block ms-auto">
-                    <img className="bannerIMG " src={banner2} alt="" />
-                </div>
+                {!load && (
+                  <div className="col-auto d-none d-lg-block ms-auto">
+                      <img className="bannerIMG " src={banner2} alt="" />
+                  </div>
+                )}
             </div>
         </div>
     </main>
